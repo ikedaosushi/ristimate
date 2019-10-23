@@ -41,8 +41,6 @@
 import { GChart } from 'vue-google-charts'
 var { jStat } = require('jstat')
 
-// import { GoogleCharts } from 'google-charts'
-// GoogleCharts.load('current', { packages: ['corechart'] })
 const transpose = a => a[0].map((_, c) => a.map(r => r[c]));
 
 export default {
@@ -58,7 +56,8 @@ export default {
       chartOptions: {
         curveType: 'function',
         height: 400,
-        axis: {gridlines: {color: 'none'}},
+        vAxis: {gridlines: {color: 'transparent'}},
+        hAxis: {gridlines: {color: 'transparent'}},
         legend: { position: 'none' }
       }
     }
@@ -74,9 +73,9 @@ export default {
     chartData() {
       return [this.header].concat(transpose(this.rawData))
     }
-  },
-  created() {
-    console.log(transpose(this.rawData))
   }
+  // created() {
+  //   console.log(transpose(this.rawData))
+  // }
 }
 </script>
